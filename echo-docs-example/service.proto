@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+/**
+ * The Request message type
+*/
+message Request {
+    string message = 1; // The message for the request
+}
+
+/**
+ * The Response message type
+*/
+message Response {
+    string message = 1; // The message for the response
+}
+
+/**
+ * The Echo service type
+*/
+service Echo {
+    rpc Echo (Request) returns (Response); // The Echo procedure
+}
