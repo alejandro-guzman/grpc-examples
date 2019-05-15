@@ -51,6 +51,13 @@ brew install grpcurl
 
 ## Run the echo example
 
+The go files with already be generated but the command used to is
+
+```bash
+cd echo-example
+make proto # generates service.pb.go
+```
+
 Open a terminal and `cd` into `grpc-examples/echo-example`
 
 Run the server
@@ -83,3 +90,31 @@ go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway
 go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger
 ```
 
+The go files with already be generated but the command used to is
+
+```bash
+cd echo-gateway-example
+make proto # creates service.pb.go
+make proto-rp # creates service.pb.gw.go
+make proto-sg # creates service.swagger.json
+```
+
+Run the server
+
+```bash
+cd echo-gateway-examples
+go run server/main.go
+```
+
+Run the reverse proxy
+
+```bash
+go run gateway/main.go
+```
+
+Hit the gateway with the client from echo-example
+
+```bash
+cd echo-example
+go run client/main.go "jello"
+```
