@@ -7,7 +7,11 @@
     - [Install protoc plugin for GO](#install-protoc-plugin-for-go)
     - [Install this package](#install-this-package)
     - [Install grpcurl](#install-grpcurl)
-  - [Run the example](#run-the-example)
+  - [Run the echo example](#run-the-echo-example)
+  - [Run the echo gateway example](#run-the-echo-gateway-example)
+    - [Install additional dependencies to run this example](#install-additional-dependencies-to-run-this-example)
+      - [grpc-gateway](#grpc-gateway)
+      - [protoc swagger plugin](#protoc-swagger-plugin)
 
 ## Install depnedencies
 
@@ -45,7 +49,7 @@ go get -u github.com/agguzman/grpc-examples/echo-example
 brew install grpcurl
 ```
 
-## Run the example
+## Run the echo example
 
 Open a terminal and `cd` into `grpc-examples/echo-example`
 
@@ -60,3 +64,22 @@ Open a separate terminal and run the client
 ```bash
 go run client/main.go "my message"
 ```
+
+## Run the echo gateway example
+
+The grpc gateway plugin uses the service definintions to create a reverse proxy and maps REST API requests to gRPC. Can optionally emit API definitions Open API v2.
+
+### Install additional dependencies to run this example
+
+#### grpc-gateway
+
+```bash
+go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway
+```
+
+#### protoc swagger plugin
+
+```bash
+go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger
+```
+

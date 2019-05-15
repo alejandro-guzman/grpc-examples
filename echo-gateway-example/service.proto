@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+import "google/api/annotations.proto";
+
+message SimpleMessage {
+    string msg = 1;
+}
+
+service Echo {
+    rpc Echo (SimpleMessage) returns (SimpleMessage) {
+        option (google.api.http) = {
+            post: "/v1/echo-gateway-example/echo"
+            body: "*"
+        };
+    }
+}
