@@ -15,8 +15,8 @@ const (
 
 type server struct{}
 
-func (s *server) Echo(ctx context.Context, in *pb.EchoRequest) (*pb.EchoResponse, error) {
-	return &pb.EchoResponse{Message: "echoing " + in.Message}, nil
+func (s *server) Echo(ctx context.Context, in *pb.Request) (*pb.Response, error) {
+	return &pb.Response{Message: "echoing " + in.Message}, nil
 }
 
 func main() {
