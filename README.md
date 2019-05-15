@@ -12,6 +12,7 @@
     - [Install additional dependencies to run this example](#install-additional-dependencies-to-run-this-example)
       - [grpc-gateway](#grpc-gateway)
       - [protoc swagger plugin](#protoc-swagger-plugin)
+  - [Docs example](#docs-example)
 
 ## Install depnedencies
 
@@ -118,3 +119,27 @@ Hit the gateway with the client from echo-example
 cd echo-example
 go run client/main.go "jello"
 ```
+
+## Docs example
+
+Install the docs plugin for protoc or do what I did and just docker to run the plugin.
+
+Take a look at `echo-docs-example/Makefile` and notice I'm usingh docker to create the docs.
+
+```bash
+cd echo-docs-example
+rm -r docs/*
+make proto-docs
+```
+
+You can the format of the output by include the options
+
+```bash
+--doc_opt=json,docs.json
+# or
+--doc_opt=markdown,docs.md
+# or
+--doc_opt=html,index.html
+```
+
+[Further reading](https://github.com/pseudomuto/protoc-gen-doc/)
